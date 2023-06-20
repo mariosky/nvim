@@ -19,15 +19,21 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
--- Copy and Paste 
-vim.keymap.set('v', '<C-c>', '"+yi')
-vim.keymap.set('v', '<C-x>', '"+c')
-vim.keymap.set('v', '<C-v>', 'c<ESC>"+p')
-vim.keymap.set('i', '<C-v>', '<ESC>"+pa')
 
-vim.keymap.set({'i','n', 'v'}, '<C-n>', ':NvimTreeToggle<CR>')
--- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
+local function copy(lines, _)
+  require('osc52').copy(table.concat(lines, '\n'))
+end
+
+local function paste()
+  return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+end
+
+
+vim.g.clipboard = {
+  name = 'osc52',
+  copy = {['+'] = copy, ['*'] = copy},
+  paste = {['+'] = paste, ['*'] = paste},
+}
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)

@@ -18,15 +18,18 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
+-- Change cursor in Insert mode
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20"
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamed'
+
 -- Enable break indent
 vim.o.breakindent = true
 vim.o.cursorline = true
+
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true

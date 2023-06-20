@@ -11,15 +11,26 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
+
+  use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+    }
+
   use {'Mofiqul/dracula.nvim'}
   use {'bluz71/vim-nightfly-colors', as = 'nightfly' }
   use({
 	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
+	  as = 'rose-pine'
   })
+
   use {
 	  'nvim-treesitter/nvim-treesitter',
 	  run = function()
@@ -29,8 +40,10 @@ return require('packer').startup(function(use)
      vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
   }
  use { 'nvim-treesitter/playground'}
+
  use { 'mbbill/undotree' }
  use { 'tpope/vim-fugitive' }
+ use {'ojroques/nvim-osc52'}
  use {
 	'VonHeikemen/lsp-zero.nvim',
 	branch = 'v2.x',
