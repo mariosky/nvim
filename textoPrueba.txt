@@ -1,0 +1,2 @@
+Este es el texto creado en vim
+para prueba de un editor
