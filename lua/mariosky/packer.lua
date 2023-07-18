@@ -44,6 +44,8 @@ return require('packer').startup(function(use)
  use { 'mbbill/undotree' }
  use { 'tpope/vim-fugitive' }
  use {'ojroques/nvim-osc52'}
+ use {'rafamadriz/friendly-snippets'}
+ use {'saadparwaiz1/cmp_luasnip'}
  use {
 	'VonHeikemen/lsp-zero.nvim',
 	branch = 'v2.x',
@@ -61,7 +63,7 @@ return require('packer').startup(function(use)
 		-- Autocompletion
 		{'hrsh7th/nvim-cmp'},     -- Required
 		{'hrsh7th/cmp-nvim-lsp'}, -- Required
-		{'L3MON4D3/LuaSnip'},     -- Required
+		{'L3MON4D3/LuaSnip', dependencies = 'rafamadriz/friendly-snippets'},     -- Required
 	}
   }
 end)

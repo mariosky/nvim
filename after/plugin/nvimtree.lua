@@ -11,4 +11,4 @@ require("nvim-tree").setup({
   },
 })
 
-vim.keymap.set('n', '<leader><F6>', vim.cmd.NvimTreeToggle)
+vim.keymap.set('n', '<leader>6', vim.cmd.NvimTreeToggle)
